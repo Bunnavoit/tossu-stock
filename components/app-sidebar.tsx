@@ -1,20 +1,10 @@
 "use client";
 
 import * as React from "react";
-import {
-  Package,
-  Tags,
-  Siren,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-} from "lucide-react";
+import { Package, Tags, Siren, GalleryVerticalEnd } from "lucide-react";
 
-import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
+
 import {
   Sidebar,
   SidebarContent,
@@ -22,36 +12,20 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import CompanyProfile from "./customs/company-profile";
 
 // This is sample data.
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  teams: [
-    {
-      name: "TosSu Stock",
-      logo: GalleryVerticalEnd,
-      plan: "",
-    },
-  ],
   dashboard: [
     {
       name: "Products",
-      url: "Products",
+      url: "/products",
       icon: Package,
     },
     {
       name: "Categories",
-      url: "#",
+      url: "/categories",
       icon: Tags,
-    },
-    {
-      name: "Low Stock",
-      url: "#",
-      icon: Siren,
     },
   ],
 };
@@ -60,7 +34,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <CompanyProfile />
       </SidebarHeader>
       <SidebarContent>
         <NavProjects projects={data.dashboard} />
